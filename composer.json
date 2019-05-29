@@ -16,7 +16,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Allianz\\MotorInsurance\\TestCase\\": "tests/"
+            "Allianz\\MotorInsurance\\Tests\\": "tests/"
         }
     },
     "require": {
