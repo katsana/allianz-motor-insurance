@@ -50,7 +50,7 @@ class Credential extends Request
     {
         return \implode(' ', [
             'Basic',
-            \base64_encode($this->client->getClientId().':'.$this->client->getClientSecret())
+            \base64_encode($this->client->getClientId().':'.$this->client->getClientSecret()),
         ]);
     }
 }

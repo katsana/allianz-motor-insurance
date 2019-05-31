@@ -2,11 +2,10 @@
 
 namespace Allianz\MotorInsurance\Tests\One;
 
+use Allianz\MotorInsurance\Client;
+use Laravie\Codex\Testing\Faker;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
-use Laravie\Codex\Testing\Faker;
-use Allianz\MotorInsurance\Client;
-use Allianz\MotorInsurance\One\Quote;
 
 class QuoteTest extends TestCase
 {

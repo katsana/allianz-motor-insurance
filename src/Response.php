@@ -4,7 +4,6 @@ namespace Allianz\MotorInsurance;
 
 use Laravie\Codex\Exceptions\HttpException;
 use Laravie\Codex\Response as BaseResponse;
-use Allianz\MotorInsurance\Exceptions\RequestHasFailedException;
 
 class Response extends BaseResponse
 {
