@@ -32,7 +32,7 @@ class QuoteTest extends TestCase
             'vehicle_postcode' => '50000',
             'vehicle_reg_no' => 'ABC123',
             'drivers' => [
-                ['email' => 'demo.etiqa@gmail.com'],
+                ['email' => 'demo.allianz@gmail.com'],
             ],
             'agent_code' => 'agent',
             'operator_code' => 'operator',
@@ -70,7 +70,7 @@ class QuoteTest extends TestCase
             'vehicle_postcode' => '50000',
             'vehicle_reg_no' => 'ABC123',
             'drivers' => [
-                ['email' => 'demo.etiqa@gmail.com'],
+                ['email' => 'demo.allianz@gmail.com'],
             ],
             'agent_code' => 'agent',
             'operator_code' => 'operator',
@@ -102,7 +102,7 @@ class QuoteTest extends TestCase
             'vehicle_postcode' => '50000',
             'vehicle_reg_no' => 'ABC123',
             'drivers' => [
-                ['email' => 'demo.etiqa@gmail.com'],
+                ['email' => 'demo.allianz@gmail.com'],
             ],
             'agent_code' => 'agent',
             'operator_code' => 'operator',
