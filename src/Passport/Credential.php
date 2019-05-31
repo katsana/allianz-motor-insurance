@@ -18,13 +18,13 @@ class Credential extends Request
 
     /**
      * Get API Body.
-     * 
+     *
      * @return array
      */
     protected function getApiHeaders(): array
     {
         return [
-            'Authorization' => 'Basic '.base64_encode($this->client->getClientId().':'.$this->client->getClientSecret()),
+            'Authorization' => $this->getAuthorizationBearer(),
             'Content-Type' => 'application/x-www-form-urlencoded',
         ];
     }
@@ -39,5 +39,18 @@ class Credential extends Request
         return [
             'grant_type' => 'client_credentials',
         ];
+    }
+
+    /**
+     * Get authorization bearer.
+     *
+     * @return string
+     */
+    protected function getAuthorizationBearer(): string
+    {
+        return \implode(' ', [
+            'Basic',
+            \base64_encode($this->client->getClientId().':'.$this->client->getClientSecret())
+        ]);
     }
 }
