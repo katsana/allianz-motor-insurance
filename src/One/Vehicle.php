@@ -11,7 +11,7 @@ class Vehicle extends Request
      *
      * @param array $payload
      *
-     * @return \Laravie\Codex\Contracts\Response
+     * @return \Allianz\MotorInsurance\Response
      */
     public function submit(array $payload): Response
     {
