@@ -7,15 +7,15 @@ use Laravie\Codex\Contracts\Response;
 class Vehicle extends Request
 {
     /**
-     * Send quotation request.
+     * Check vehicle coverage.
      *
-     * @param array $payload
+     * @param  int|string $yearManufactured
      *
      * @return \Allianz\MotorInsurance\Response
      */
-    public function submit(array $payload): Response
+    public function coverage(string $makeCode, string $modelCode, $yearManufactured): Response
     {
-        return $this->information($payload);
+        return $this->sendJson('GET', 'lov/avVariant', $this->getApiHeaders(), $this->mergeApiBody($payload));
     }
 
     /**
