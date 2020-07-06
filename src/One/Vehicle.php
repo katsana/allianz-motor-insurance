@@ -27,6 +27,24 @@ class Vehicle extends Request
     }
 
     /**
+     * Check vehicle coverage.
+     *
+     * @param int|string $yearManufactured
+     * @param string $region Can either be 'W' (west) or 'E' (east)
+     *
+     * @return \Allianz\MotorInsurance\Response
+     */
+    public function coverNoteVariants(string $makeCode, string $modelCode): Response
+    {
+        $payload = [
+            'makeCode' => $makeCode,
+            'modelCode' => $modelCode,
+        ];
+
+        return $this->sendJson('GET', 'lov/allianzVariant', $this->getApiHeaders(), $this->mergeApiBody($payload));
+    }
+
+    /**
      * Send vehicle information request.
      *
      * @param array $payload
