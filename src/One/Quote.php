@@ -15,7 +15,7 @@ class Quote extends Request
      */
     public function draft(array $payload): Response
     {
-        return $this->submit($payload);
+        return $this->sendJson('POST', 'quote', $this->getApiHeaders(), $this->mergeApiBody($payload));
     }
 
     /**
@@ -25,8 +25,8 @@ class Quote extends Request
      *
      * @return \Allianz\MotorInsurance\Response
      */
-    public function submit(array $payload): Response
+    public function update(array $payload): Response
     {
-        return $this->sendJson('POST', 'quote', $this->getApiHeaders(), $this->mergeApiBody($payload));
+        return $this->sendJson('PUT', 'quote', $this->getApiHeaders(), $this->mergeApiBody($payload));
     }
 }
