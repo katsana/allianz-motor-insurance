@@ -9,12 +9,20 @@ class Vehicle extends Request
     /**
      * Check vehicle coverage.
      *
-     * @param  int|string $yearManufactured
+     * @param int|string $yearManufactured
+     * @param string $region Can either be 'W' (west) or 'E' (east)
      *
      * @return \Allianz\MotorInsurance\Response
      */
-    public function coverage(string $makeCode, string $modelCode, $yearManufactured): Response
+    public function coverage(string $makeCode, string $modelCode, $yearManufactured, string $region = 'W'): Response
     {
+        $payload = [
+            'region' => $region,
+            'makeCode' => $makeCode,
+            'modelCode' => $modelCode,
+            'makeYear' => $yearManufactured,
+        ];
+
         return $this->sendJson('GET', 'lov/avVariant', $this->getApiHeaders(), $this->mergeApiBody($payload));
     }
 
