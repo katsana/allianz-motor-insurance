@@ -14,7 +14,7 @@ class Vehicle extends Request
      *
      * @return \Allianz\MotorInsurance\Response
      */
-    public function coverage(string $makeCode, string $modelCode, $yearManufactured, string $region = 'W'): Response
+    public function variants(string $makeCode, string $modelCode, $yearManufactured, string $region = 'W'): Response
     {
         $payload = [
             'region' => $region,
