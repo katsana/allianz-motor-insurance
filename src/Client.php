@@ -22,6 +22,13 @@ class Client extends BaseClient
     protected $clientSecret;
 
     /**
+     * Partner ID.
+     *
+     * @var string
+     */
+    protected $partnerId;
+
+    /**
      * API Access Token.
      *
      * @var string|null
@@ -50,8 +57,9 @@ class Client extends BaseClient
      * @param \Http\Client\Common\HttpMethodsClient $http
      * @param string                                $clientId
      * @param string                                $clientSecret
+     * @param string                                $partnerId
      */
-    public function __construct(HttpClient $http, string $clientId, string $clientSecret)
+    public function __construct(HttpClient $http, string $clientId, string $clientSecret, string $partnerId)
     {
         $this->http = $http;
         $this->clientId = $clientId;
@@ -61,7 +69,7 @@ class Client extends BaseClient
     /**
      * Get API Key.
      *
-     * @return string|null
+     * @return string
      */
     public function getClientId(): string
     {
@@ -71,7 +79,7 @@ class Client extends BaseClient
     /**
      * Get API Secret.
      *
-     * @return string|null
+     * @return string
      */
     public function getClientSecret(): string
     {
@@ -79,11 +87,21 @@ class Client extends BaseClient
     }
 
     /**
-     * Get passport endpoint.
+     * Get Partner ID.
      *
      * @return string
      */
-    public function getPassportEndpoint(): string
+    public function getPartnerId(): string
+    {
+        return $this->partnerId;
+    }
+
+    /**
+     * Get passport endpoint.
+     *
+     * @return string|null
+     */
+    public function getPassportEndpoint(): ?string
     {
         return $this->passportEndpoint;
     }
@@ -96,6 +114,20 @@ class Client extends BaseClient
     public function getAccessToken(): ?string
     {
         return $this->accessToken;
+    }
+
+    /**
+     * Set Partner ID.
+     *
+     * @param string $partnerId
+     *
+     * @return $this
+     */
+    public function setPartnerId(string $partnerId)
+    {
+        $this->partnerId = $partnerId;
+
+        return $this;
     }
 
     /**

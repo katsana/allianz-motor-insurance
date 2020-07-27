@@ -15,6 +15,8 @@ class Quote extends Request
      */
     public function draft(array $payload): Response
     {
+        $payload['partnerId'] = $this->client->getPartnerId();
+
         return $this->sendJson('POST', 'quote', $this->getApiHeaders(), $this->mergeApiBody($payload));
     }
 
@@ -27,6 +29,8 @@ class Quote extends Request
      */
     public function update(array $payload): Response
     {
+        $payload['partnerId'] = $this->client->getPartnerId();
+
         return $this->sendJson('PUT', 'quote', $this->getApiHeaders(), $this->mergeApiBody($payload));
     }
 }
