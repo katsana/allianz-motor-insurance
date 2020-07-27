@@ -28,6 +28,7 @@ class VehicleTest extends TestCase
         $payload = [
             'vehicle_postcode' => '50000',
             'vehicle_reg_no' => 'ABC123',
+            'sourceSystem' => 'partner',
         ];
 
         $faker = Faker::create()
@@ -35,10 +36,10 @@ class VehicleTest extends TestCase
                     ->expectEndpointIs('/v1/openapi/mci/vehicleDetails')
                     ->shouldResponseWith(200, '{"status":"OK","data":null}');
 
-        $client = new Client($faker->http(), 'homestead', 'secret');
+        $client = new Client($faker->http(), 'homestead', 'secret', 'partner');
         $client->setAccessToken('AckfSECXIvnK5r28GVIWUAxmbBSjTsmF');
 
-        $response = $client->uses('Vehicle')->submit($payload);
+        $response = $client->uses('Vehicle')->information($payload);
 
         $this->assertSame(200, $response->getStatusCode());
         $this->assertSame('OK', $response->toArray()['status']);

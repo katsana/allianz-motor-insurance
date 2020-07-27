@@ -64,6 +64,7 @@ class Client extends BaseClient
         $this->http = $http;
         $this->clientId = $clientId;
         $this->clientSecret = $clientSecret;
+        $this->partnerId = $partnerId;
     }
 
     /**

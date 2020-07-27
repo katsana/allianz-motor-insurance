@@ -22,7 +22,7 @@ class ClientTest extends TestCase
     {
         $faker = Faker::create();
 
-        $client = new Client($faker->http(), 'id', 'secret');
+        $client = new Client($faker->http(), 'id', 'secret', 'partner');
 
         $this->assertSame('id', $client->getClientId());
         $this->assertSame('secret', $client->getClientSecret());
@@ -35,7 +35,7 @@ class ClientTest extends TestCase
     {
         $faker = Faker::create();
 
-        $client = new Client($faker->http(), 'id', 'secret');
+        $client = new Client($faker->http(), 'id', 'secret', 'partner');
 
         $client->useCustomPassportEndpoint('https://api.etiqa.com.my/passport');
 
@@ -47,7 +47,7 @@ class ClientTest extends TestCase
     {
         $faker = Faker::create();
 
-        $client = new Client($faker->http(), 'id', 'secret');
+        $client = new Client($faker->http(), 'id', 'secret', 'partner');
 
         $this->assertNull($client->getAccessToken());
 

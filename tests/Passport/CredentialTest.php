@@ -35,7 +35,7 @@ class CredentialTest extends TestCase
                     ->expectEndpointIs('https://api.allianz.com.my/passport/v1/oauth/accesstoken')
                     ->shouldResponseWith(200, '{"status":"OK","data":{"access_token":"AckfSECXIvnK5r28GVIWUAxmbBSjTsmF"}}');
 
-        $client = new Client($faker->http(), 'homestead', 'secret');
+        $client = new Client($faker->http(), 'homestead', 'secret', 'partner');
         $client->useCustomPassportEndpoint('https://api.allianz.com.my/passport');
         $client->setAccessToken(null);
 

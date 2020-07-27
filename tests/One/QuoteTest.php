@@ -36,6 +36,7 @@ class QuoteTest extends TestCase
             ],
             'agent_code' => 'agent',
             'operator_code' => 'operator',
+            'partnerId' => 'partner',
         ];
 
         $faker = Faker::create()
@@ -43,10 +44,10 @@ class QuoteTest extends TestCase
                     ->expectEndpointIs('/v1/openapi/mci/quote')
                     ->shouldResponseWith(200, '{"status":"OK","data":null}');
 
-        $client = new Client($faker->http(), 'homestead', 'secret');
+        $client = new Client($faker->http(), 'homestead', 'secret', 'partner');
         $client->setAccessToken('AckfSECXIvnK5r28GVIWUAxmbBSjTsmF');
 
-        $response = $client->uses('Quote')->submit($payload);
+        $response = $client->uses('Quote')->draft($payload);
 
         $this->assertSame(200, $response->getStatusCode());
         $this->assertSame('OK', $response->toArray()['status']);
@@ -74,6 +75,7 @@ class QuoteTest extends TestCase
             ],
             'agent_code' => 'agent',
             'operator_code' => 'operator',
+            'partnerId' => 'partner',
         ];
 
         $faker = Faker::create()
@@ -81,10 +83,10 @@ class QuoteTest extends TestCase
                     ->expectEndpointIs('/v1/openapi/mci/quote')
                     ->shouldResponseWith(500, '{"fault":"Driver record incomplete. Please provide details"}');
 
-        $client = new Client($faker->http(), 'homestead', 'secret');
+        $client = new Client($faker->http(), 'homestead', 'secret', 'partner');
         $client->setAccessToken('AckfSECXIvnK5r28GVIWUAxmbBSjTsmF');
 
-        $client->uses('Quote')->submit($payload);
+        $client->uses('Quote')->draft($payload);
     }
 
     /** @test */
@@ -106,6 +108,7 @@ class QuoteTest extends TestCase
             ],
             'agent_code' => 'agent',
             'operator_code' => 'operator',
+            'partnerId' => 'partner',
         ];
 
         $faker = Faker::create()
@@ -113,7 +116,7 @@ class QuoteTest extends TestCase
                     ->expectEndpointIs('/v1/openapi/mci/quote')
                     ->shouldResponseWith(200, '{"status":"OK","data":null}');
 
-        $client = new Client($faker->http(), 'homestead', 'secret');
+        $client = new Client($faker->http(), 'homestead', 'secret', 'partner');
         $client->setAccessToken('AckfSECXIvnK5r28GVIWUAxmbBSjTsmF');
 
         $response = $client->uses('Quote')->draft($payload);
