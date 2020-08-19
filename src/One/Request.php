@@ -26,6 +26,6 @@ abstract class Request extends BaseRequest
     {
         $host = $this->client->getApiEndpoint();
 
-        return new Endpoint("{$host}/{$this->version}/openapi/mci", $path);
+        return new Endpoint("{$host}/{$this->version}/openapi", $path);
     }
 }

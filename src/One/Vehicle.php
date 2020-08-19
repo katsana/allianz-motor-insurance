@@ -23,7 +23,7 @@ class Vehicle extends Request
             'makeYear' => $yearManufactured,
         ];
 
-        return $this->sendJson('GET', 'lov/avVariant', $this->getApiHeaders(), $this->mergeApiBody($payload));
+        return $this->sendJson('GET', 'mci/lov/avVariant', $this->getApiHeaders(), $this->mergeApiBody($payload));
     }
 
     /**
@@ -41,7 +41,7 @@ class Vehicle extends Request
             'modelCode' => $modelCode,
         ];
 
-        return $this->sendJson('GET', 'lov/allianzVariant', $this->getApiHeaders(), $this->mergeApiBody($payload));
+        return $this->sendJson('GET', 'mci/lov/allianzVariant', $this->getApiHeaders(), $this->mergeApiBody($payload));
     }
 
     /**
@@ -55,7 +55,7 @@ class Vehicle extends Request
     {
         $payload['sourceSystem'] = $this->client->getPartnerId();
 
-        return $this->sendJson('POST', 'vehicleDetails', $this->getApiHeaders(), $this->mergeApiBody($payload));
+        return $this->sendJson('POST', 'mci/vehicleDetails', $this->getApiHeaders(), $this->mergeApiBody($payload));
     }
 
     /**
@@ -69,6 +69,6 @@ class Vehicle extends Request
     {
         $payload['SourceSystem'] = $this->client->getPartnerId();
 
-        return $this->sendJson('POST', 'checkUBB', $this->getApiHeaders(), $this->mergeApiBody($payload));
+        return $this->sendJson('POST', 'mci/checkUBB', $this->getApiHeaders(), $this->mergeApiBody($payload));
     }
 }

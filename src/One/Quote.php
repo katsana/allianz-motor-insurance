@@ -17,7 +17,7 @@ class Quote extends Request
     {
         $payload['partnerId'] = $this->client->getPartnerId();
 
-        return $this->sendJson('POST', 'quote', $this->getApiHeaders(), $this->mergeApiBody($payload));
+        return $this->sendJson('POST', 'mci/quote', $this->getApiHeaders(), $this->mergeApiBody($payload));
     }
 
     /**
@@ -31,6 +31,6 @@ class Quote extends Request
     {
         $payload['partnerId'] = $this->client->getPartnerId();
 
-        return $this->sendJson('PUT', 'quote', $this->getApiHeaders(), $this->mergeApiBody($payload));
+        return $this->sendJson('PUT', 'mci/quote', $this->getApiHeaders(), $this->mergeApiBody($payload));
     }
 }
