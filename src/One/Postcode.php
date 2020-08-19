@@ -13,6 +13,6 @@ class Postcode extends Request
      */
     public function search(string $postCode): Response
     {
-        return $this->sendJson('GET', 'postalCodes', $this->getApiHeaders(), $this->mergeApiBody($payload));
+        return $this->sendJson('GET', 'postalCodes', $this->getApiHeaders(), $this->mergeApiBody(['postCode' => $postCode]));
     }
 }
