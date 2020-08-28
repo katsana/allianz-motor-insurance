@@ -15,6 +15,6 @@ class Invoice extends Request
      */
     public function submit(array $payload): Response
     {
-        return $this->sendJson('POST', 'submission', $this->getApiHeaders(), $this->mergeApiBody($payload));
+        return $this->sendJson('POST', 'mci/submission', $this->getApiHeaders(), $this->mergeApiBody($payload));
     }
 }
