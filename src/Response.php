@@ -20,7 +20,7 @@ class Response extends BaseResponse
         if ($statusCode === 401) {
             throw new Exceptions\NotAuthorizedException($this, $this->getReasonPhrase());
         } elseif ($statusCode === 500) {
-            throw new HttpException($this, $this->toArray());
+            throw new HttpException($this, \json_encode($this->toArray()));
         } elseif ($statusCode !== 200) {
             throw new HttpException($this, $this->getReasonPhrase());
         }
